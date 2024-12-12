@@ -1,0 +1,323 @@
+*{
+    margin: 0; /* Resetează marginile implicite ale tuturor elementelor */
+    padding: 0; /* Resetează padding-ul implicit al tuturor elementelor */
+}
+
+.header{
+    min-height: 100vh; /* Setează înălțimea antetului să ocupe întreaga înălțime a ecranului */
+    width: 100%; /* Lățime completă pentru antet */
+    background-image: linear-gradient(rgba(179, 177, 177, 0.768), rgba(179, 177, 177, 0.768)), url('Imagini/banner.png'); /* Imagine de fundal cu gradient pe lângă */
+    background-position: center; /* Centrează imaginea de fundal */
+    background-size: cover; /* Imaginea va acoperi complet containerul, fără a distorsiona aspectul */
+    position: relative; /* Permite poziționarea absolută a elementelor interne */
+}
+
+nav{
+    display: flex; /* Folosește flexbox pentru a aranja elementele de navigare pe o singură linie */
+    padding: 2% 6%; /* Spațiere internă pe axa orizontală și verticală */
+    justify-content: space-between; /* Distribuie elementele de navigare pe toată lățimea disponibilă */
+    align-items: center; /* Aliniază vertical elementele din interiorul nav-ului */
+}
+
+nav .logo{
+    width: 70px; /* Dimensiune fixă pentru logo */
+    height: auto; /* Menține proporțiile imaginii pentru logo */
+}
+
+.nav-link{
+    flex: 1; /* Permite ca elementul de navigare să ocupe spațiul disponibil în interiorul nav-ului */
+    text-align: right; /* Aliniază elementele de navigare la dreapta */
+}
+
+.nav-link ul li{
+    list-style: none; /* Elimină markerii impliciți ai listei */
+    display: inline-block; /* Fiecare element din listă este afișat pe orizontală */
+    padding: 8px 8px; /* Spațiu interior pentru fiecare element */
+    position: relative; /* Permite poziționarea absolută a pseudo-elementului */
+}
+
+.nav-link ul li a{
+    color: white; /* Text alb pentru link-uri */
+    text-decoration: none; /* Elimină sublinierea implicită a link-urilor */
+    font-size: 15px; /* Dimensiune moderată pentru font */
+}
+
+.nav-link ul li::after{
+    content: ''; /* Creează un pseudo-element gol */
+    width: 0; /* Inițial, linia este invizibilă */
+    height: 2px; /* Înălțimea liniei sub link */
+    background: rgb(255, 255, 255); /* Culoare albă pentru linia sub link */
+    display: block; /* Transformă pseudo-elementul într-un element bloc */
+    margin: auto; /* Centrează linia sub elementul de listă */
+}
+
+.nav-link ul li:hover::after{
+    width: 100%; /* Extinde linia pe toată lățimea elementului de listă la hover */
+}
+
+.text-box{
+    width: 80%; /* Lățimea textului reprezintă 80% din container */
+    color: white; /* Text alb pentru vizibilitate pe fundal întunecat */
+    position: absolute; /* Poziționează elementul față de containerul părinte */
+    top: 50%; /* Centrează vertical în interiorul containerului */
+    left: 50%; /* Centrează orizontal în interiorul containerului */
+    transform: translate(-50%, -50%); /* Corectează offset-ul pentru un centru exact */
+    text-align: center; /* Textul este centrat în interiorul box-ului */
+}
+.text-box h1{
+    font-size: 40px; /* Setează dimensiunea fontului pentru titlu la 40px */
+}
+
+.text-box p{
+    margin-top: 10px; /* Adaugă un spațiu de 10px deasupra paragrafului */
+    margin-bottom: 40px; /* Adaugă un spațiu de 40px sub paragraf */
+    font-size: 12px; /* Setează dimensiunea fontului pentru textul din paragraf la 12px */
+}
+
+nav .fa{
+    display: none; /* Ascunde iconițele font-awesome în mod implicit */
+}
+
+h1{
+    font-size: 60px; /* Setează dimensiunea fontului pentru titluri la 60px */
+    text-align: center; /* Centrează titlul pe orizontală */
+}
+
+@media (max-width: 700px){
+    .text-box h1{
+        font-size: 30px; /* Diminuează dimensiunea fontului la 30px pe ecrane mici */
+    }
+
+    .nav-link ul li{
+        display: block; /* Fiecare element de meniu va fi afișat pe o linie separată pe ecrane mici */
+    }
+
+    .nav-link{
+        position: absolute; /* Poziționează meniul de navigare absolut pe ecran */
+        background: black; /* Fundal negru pentru meniul de navigare */
+        height: 100vh; /* Meniul ocupă întreaga înălțime a ecranului */
+        width: 200px; /* Lățimea meniului este de 200px */
+        top: 0; /* Poziționează meniul de sus */
+        right: -200px; /* Plasează meniul aflat inițial în afacerea ecranului */
+        overflow: hidden; /* Ascunde orice conținut care depășește dimensiunea meniului */
+        text-align: left; /* Aliniază textul din meniul de navigare la stânga */
+        z-index: 2; /* Plasează meniul deasupra altor elemente */
+    }
+
+    nav .fa{
+        display: block; /* Afișează iconițele font-awesome pe ecranele mici */
+        color: white; /* Culoare albă pentru iconițele de meniu */
+        margin: 10px; /* Margine de 10px pentru iconiță */
+        font-size: 22px; /* Dimensiune mai mică pentru iconițe pe ecrane mici */
+        cursor: pointer; /* Cursor pointer pentru interacțiune cu iconițele */
+    }
+
+    .nav-link ul{
+        padding: 40px; /* Adaugă padding de 40px în interiorul listei de navigare pe ecrane mici */
+    }
+}
+
+.galerie{
+    height: 100vh; /* Galerie cu înălțime pe întreaga înălțime a ecranului */
+}
+
+.carousel {
+    display: flex; /* Folosește flexbox pentru aranjarea slide-urilor pe orizontală */
+    overflow-x: scroll; /* Permite scroll-ul orizontal pe galerie */
+    scroll-snap-type: x mandatory; /* Activează un efect de snap între slide-uri la scroll */
+    gap: 10px; /* Adaugă un spațiu de 10px între fiecare slide */
+    padding: 20px; /* Adaugă padding de 20px în interiorul caruselului */
+    background-color: white; /* Fundal alb pentru carusel */
+    scroll-behavior: smooth; /* Face scroll-ul mai lin */
+}
+.slide {
+    flex: 0 0 auto; /* Blochează dimensiunea fiecărui slide */
+    width: 200px;
+    height: 300px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
+    text-align: center;
+    scroll-snap-align: center; /* Centrează fiecare slide */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+/* Imagine din fiecare slide */
+.slide img {
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+}
+
+@media (min-width: 768px) {
+    .slide {
+        width: 300px; /* Lățime mai mare */
+        height: 400px; /* Înălțime mai mare */
+    }
+
+    .slide img {
+        height: 85%; /* Proporțional mai mare */
+    }
+}
+
+/* Text */
+.slide p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #555;
+}
+
+/* Hover efect */
+.slide:hover {
+    transform: scale(1.05); /* Mărește ușor slide-ul */
+}
+
+/* Elimină scrollbar-ul vizibil */
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+.textGalerie{
+    width: 75%; /* Setează lățimea secțiunii .textGalerie la 75% din lățimea containerului părinte */
+    margin-left: auto; /* Centrează secțiunea pe orizontală prin adăugarea automată de margini pe stânga */
+    margin-right: auto; /* Centrează secțiunea pe orizontală prin adăugarea automată de margini pe dreapta */
+}
+
+.textGalerie h2{
+    font-size: 30px; /* Setează dimensiunea fontului pentru titlurile din secțiunea .textGalerie la 30px */
+    text-align: center; /* Centrează titlurile pe orizontală */
+    color: #4f4848; /* Setează culoarea textului titlului la o nuanță de gri închis (#4f4848) */
+}
+
+.textGalerie p{
+    font-size: 20px; /* Setează dimensiunea fontului pentru paragrafele din secțiunea .textGalerie la 20px */
+    text-align: center; /* Centrează textul paragrafelor pe orizontală */
+}
+
+.ilustratie {
+    width: 100%; /* Latimea va ocupa intregul container parinte */
+    height: 125px; /* Inaltimea ramane fixa */
+    background-image: url(Imagini/ilustratie.png);
+    background-repeat: repeat-x; /* Repeta imaginea pe axa orizontală */
+    background-size: 150px 150px; /* Redimensioneaza imaginea */
+}
+.despre{
+    height: 100vh; /* Înălțimea secțiunii .despre este setată la 100% din înălțimea vizibilă a ferestrei (viewport height) */
+    width: 95%; /* Lățimea secțiunii .despre este setată la 95% din lățimea containerului părinte */
+    margin-left: auto; /* Centrează secțiunea pe axa orizontală */
+    margin-right: auto; /* Centrează secțiunea pe axa orizontală */
+}
+
+.despre p, ul, li{
+    font-size: 20px; /* Setează dimensiunea fontului pentru paragrafe, liste și elemente de listă la 20px */
+}
+
+.despre p{
+    padding-bottom: 20px; /* Adaugă un spațiu de 20px la partea de jos a paragrafelor din .despre */
+}
+
+.despre ul {
+    padding-left: 35px; /* Adaugă un spațiu de 35px la stânga listei pentru a alinia mai frumos elementele */
+}
+
+.despre li {
+    list-style: circle; /* Schimbă stilul listei pentru a folosi cercuri în loc de puncte pentru elementele de listă */
+}
+
+.despre h2{
+    font-size: 30px; /* Setează dimensiunea fontului pentru titlurile din secțiunea .despre la 30px */
+    text-align: left; /* Aliniază titlurile la stânga */
+    color: #4f4848; /* Setează culoarea textului titlului la o nuanță de gri închis */
+}
+.imagineDespre{
+    height: 25%; /* Înălțimea secțiunii este setată la 25% din înălțimea containerului părinte */
+    background-image: url(Imagini/Voluntarii\ lucrand.png); /* Setează imaginea de fundal pentru secțiunea .imagineDespre */
+    background-size: cover; /* Asigură că imaginea acoperă complet secțiunea fără a o distorsiona */
+}
+
+.contacte {
+    height: 89vh; /* Înălțimea secțiunii .contacte este setată la 89% din înălțimea ferestrei */
+    padding: 50px 20px; /* Adaugă padding de 50px sus și jos și de 20px la stânga și dreapta */
+    background-color: #f9f9f9; /* Setează culoarea de fundal a secțiunii .contacte la un gri foarte deschis */
+    text-align: center; /* Centrează textul pe orizontală în secțiunea .contacte */
+}
+
+.contacte h2 {
+    font-size: 2em; /* Setează dimensiunea fontului pentru titlurile din secțiunea .contacte la 2em */
+    color: #333; /* Setează culoarea textului la un gri închis */
+    margin-bottom: 20px; /* Adaugă un spațiu de 20px sub titlu */
+}
+
+.contacte p {
+    font-size: 1em; /* Setează dimensiunea fontului pentru paragrafele din secțiunea .contacte la 1em */
+    color: #555; /* Setează culoarea textului la un gri mediu */
+    margin-bottom: 30px; /* Adaugă un spațiu de 30px sub paragrafe */
+}
+.contact-container {
+    display: flex; /* Utilizează flexbox pentru alinierea și distribuirea elementelor */
+    flex-wrap: wrap; /* Permite ca elementele să se întindă pe mai multe rânduri dacă este necesar */
+    justify-content: center; /* Centrează elementele pe orizontală în container */
+    gap: 30px; /* Adaugă un spațiu de 30px între elementele din container */
+}
+
+.contact-info, .contact-form {
+    flex: 1; /* Fiecare secțiune .contact-info și .contact-form va ocupa același spațiu disponibil */
+    max-width: 400px; /* Lățimea maximă a fiecărui element este setată la 400px */
+    background-color: white; /* Fundalul secțiunilor va fi alb */
+    padding: 20px; /* Padding de 20px pentru spațiu interior */
+    border-radius: 10px; /* Colțurile vor fi rotunjite cu un radius de 10px */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adaugă o umbră discretă pentru efect vizual */
+}
+.contact-info h3, .contact-form h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.contact-info p {
+    font-size: 0.9em;
+    color: #555;
+    margin: 10px 0;
+    text-align: left;
+}
+
+.contact-info i {
+    color: #867f7f;
+    margin-right: 10px;
+}
+
+.contact-form label {
+    display: block;
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 90%;
+    padding: 10px;
+
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.9em;
+    color: #333;
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #867f7f;
+    color: white;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #867f7f;
+}

@@ -1,0 +1,105 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+  } /* Asigură că padding-ul și marginile nu extind dimensiunea elementelor */
+    
+  body {
+    font-family: Arial, sans-serif; /* Setează fontul pentru întreaga pagină */
+    background-color: #f9f9f9; /* Setează culoarea de fundal a paginii */
+    color: #333; /* Setează culoarea textului paginii */
+    padding: 10px; /* Adaugă spațiu între conținut și marginea paginii */
+  }
+    
+  section {
+    margin: 20px auto; /* Centrează secțiunile pe pagină */
+    padding: 20px; /* Adaugă spațiu între conținut și marginea secțiunii */
+    background-color: #fff; /* Fundal alb */
+    border-radius: 8px; /* Colțuri rotunjite */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adaugă o umbră */ 
+    max-width: 800px; /* Setează lațimea maximală */
+  }
+    
+  .poza-pisicii {
+    background-image: url('Imagini/leo.png'); /* Setează imaginea pisicii ca imagine de fundal */
+    background-size: contain; /* Imaginea se redimensionează proporțional */
+    background-repeat: no-repeat; /* Previne repetarea imaginii */
+    background-position: center; /* Centrează imaginea în secțiune */
+    height: 400px;
+    width: 100%; /* Lățimea completă a paginii */
+    max-width: 800px;
+    margin: 20px auto; /* Centrează secțiunea pe orizontală */
+    border-radius: 10px; /* Colțuri rotunjite */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Umbră */
+    background-color: #fff; /* Fundal */
+  }
+    
+  h2 {
+    font-size: 1.5rem; /* Dimensiunea fontului pentru titluri */
+    margin-bottom: 15px; /* Spațiu sub titlu */
+    color: #444; /* Culoare gri pentru titlu */
+  }
+   
+  p, ul {
+    font-size: 1rem; /* Dimensiunea fontului pentru paragrafe și liste */
+    margin-bottom: 15px; /* Spațiu între elemente */
+  }
+    
+  ul {
+    list-style-type: none; /* Elimină punctele implicite din liste */
+    padding: 0; /* Elimină spațiul implicit din interiorul listei */
+  }
+    
+  ul li {
+    margin-bottom: 10px; /* Adaugă spațiu între elementele listei */
+  }
+    
+  strong {
+    color: #007BFF; /* Evidențiază textul bold cu o culoare albastră */
+  }
+    
+  
+  .navigare {
+    text-align: center; /* Centrează conținutul din secțiunea de navigare */
+  }
+    
+  .navigare .buton {
+    margin-top: 15px; /* Adaugă spațiu deasupra butonului */
+  }
+    
+  @media (max-width: 768px) {
+    body {
+      padding: 5px; /* Reduce spațiul exterior pentru pagină */
+    }
+    
+    section {
+      padding: 15px; /* Reduce spațiul interior în secțiuni */
+    }
+    
+    h2 {
+      font-size: 1.3rem; /* Diminuează dimensiunea fontului pentru titluri */
+    }
+    
+    p, ul {
+      font-size: 0.9rem; /* Diminuează dimensiunea fontului pentru text */
+    }
+  }
+    
+  @media (max-width: 480px) {
+    section {
+      padding: 10px; /* Mai puțin spațiu interior pentru ecrane mici */
+    }
+    
+    h2 {
+      font-size: 1.1rem; /* Ajustează dimensiunea titlurilor */
+    }
+    
+    p, ul {
+      font-size: 0.85rem; /* Ajustează dimensiunea textului */
+    }
+    
+    .buton {
+      font-size: 0.85rem;
+      padding: 6px 12px;
+    }
+  }
